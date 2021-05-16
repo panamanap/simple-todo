@@ -1,0 +1,9 @@
+.todoFooter {
+      flex: 0.2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+      background-color: hsl(240, 16%, 60%);
+}

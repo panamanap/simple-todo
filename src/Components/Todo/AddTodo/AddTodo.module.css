@@ -1,0 +1,29 @@
+.todoForm {
+   margin: 10px auto;
+   flex: 50px;
+   width: 80%;
+   border-radius: 5px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: hsl(240, 30%, 35%);
+}
+
+.inputText{
+   align-self: center;
+   height: 25px;
+   width: 60%;
+   padding-left: 5px;
+   outline: none;
+   border: none;
+   color:hsl(240, 16%, 30%);
+   margin-right: 10px;
+}
+
+.btnSubmit {
+   background-color: hsl(0, 0%, 100%);
+   border: none;
+   align-self:center;
+   font-size: 1.2em;
+   background-color: hsl(240, 30%, 35%);
+}

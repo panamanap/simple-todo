@@ -1,0 +1,39 @@
+.todoItem {
+   min-height: 30px;
+   list-style-type: none;
+   background-color: hsl(240, 30%, 35%);
+   margin: 10px;
+   padding: 10px;
+   border-radius: 5px;
+   display: flex;
+   justify-content: space-between;
+}
+
+.wrapperText{
+   align-self: center;
+   color:hsl(0, 0%, 100%);
+   max-width: 90%;
+   overflow: hidden;
+   display: flex;
+   justify-content: flex-start;
+}
+
+.inputCheckbox{
+   margin-right: 10px;
+   align-self: center;
+}
+
+.completed{
+   color: hsl(0, 0%, 45%);
+   text-decoration: line-through;
+}
+
+.deleteTodo {
+   background-color: hsl(240, 30%, 35%);
+   border: none;
+   align-self:center;
+   margin-right: 5px;
+   font-size: 1.2em;
+}
+
+

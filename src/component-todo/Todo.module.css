@@ -1,0 +1,21 @@
+.todoWrapper {
+   margin: 10vh auto;
+   display: flex;
+   flex-direction: column;
+   height: 60vh;
+   width: 30vw;
+   border-radius: 15px;
+   background-color: hsl(60, 40%,90%); 
+} 
+
+.content {
+   overflow: auto;
+   flex: 1;
+   
+}
+
+@media (max-width: 650px) {
+   .todoWrapper {
+      width: 50vw;
+   }
+}
