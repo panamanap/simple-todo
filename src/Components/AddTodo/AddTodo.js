@@ -1,8 +1,10 @@
-import {useState} from 'react';
+// import {useState} from 'react';
+import { updateNewTodoAction } from '../../redux/reducers/todosReducer';
+import store from '../../redux/store';
 import styles from './AddTodo.module.css';
 
-const AddTodo = ({addTodo}) => {
-   const [text, setText] = useState('');
+const AddTodo = ({dispath, addTodo, store}) => {
+   // const [text, setText] = useState('');
 
    const handleSubmit = (event) => {
       event.preventDefault();
@@ -10,11 +12,13 @@ const AddTodo = ({addTodo}) => {
          alert("Enter task");
          return;
       }
-      setText("");
       addTodo(text);
    }
 
-   const hadleChange = (event)=> setText(event.target.value);
+   const hadleChange = (event)=>  {
+      let text =  event.target.value;
+      dispath(updateNewTodoAction(text))
+   }
 
    return (
          <form    
