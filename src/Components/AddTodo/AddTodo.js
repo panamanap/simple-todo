@@ -1,42 +1,42 @@
-// import {useState} from 'react';
-import { updateNewTodoAction } from '../../redux/reducers/todosReducer';
-import store from '../../redux/store';
-import styles from './AddTodo.module.css';
+import s from './AddTodo.module.css';
+import { useDispatch } from "react-redux";
+import { addTodoAction } from "../../redux/reducers/todosReducer";
+import { useState } from 'react';
 
-const AddTodo = ({dispath, addTodo, store}) => {
-   // const [text, setText] = useState('');
+const AddTodo = () => {
+   const [text, setText] = useState('');
+   const dispatch = useDispatch();
 
-   const handleSubmit = (event) => {
-      event.preventDefault();
-      if(!text) {
-         alert("Enter task");
-         return;
-      }
-      addTodo(text);
-   }
+   const handleChange = (e) => {
+      setText(e.target.value);
+   };
 
-   const hadleChange = (event)=>  {
-      let text =  event.target.value;
-      dispath(updateNewTodoAction(text))
-   }
+   const handleSubmit = (e) => {
+      e.preventDefault();
+      if(text === '') return;
+      dispatch(addTodoAction(text));
+      setText("");   
+   };
 
    return (
-         <form    
-            className={styles.todoForm} 
-            onSubmit={handleSubmit}>
-            <input 
-               className={styles.inputText} 
-               type="text" 
-               name="input" 
-               value={text}
-               onChange={hadleChange} 
-               placeholder="Add task..." 
-               autoFocus
-            />
-            <button 
-            type="submit" 
-            className={styles.btnSubmit}> 📝</button>
-         </form>
+      <form
+         className={s.todoForm}
+      >
+      <input
+         className={s.inputText}
+         type="text"
+         name="input"
+         value={text}
+         onChange={handleChange}
+         placeholder="Add task..."
+         autoFocus
+      />
+      <button
+         onClick={handleSubmit}
+         className={s.btnSubmit}>
+         📄
+      </button>
+  </form>
   )
 }
 

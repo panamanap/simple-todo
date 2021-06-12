@@ -1,29 +1,49 @@
-// import { useState } from "react";
-import styles from "./TodoItem.module.css";
+import React, { useState } from "react";
+import s from "./TodoItem.module.css";
+import { useDispatch } from "react-redux";
+import { updateTodoAction, deleteTodoAction} from "../../redux/reducers/todosReducer";
+import EditTodo from "./EditTodo/EditTodo";
 
+export const TodoItem = ({ id, text, checked}) => {
+   const dispatch = useDispatch();
+   const [edit, setEdit] = useState(true);
 
-const TodosItem = ({item}) => {
-   // const [completed, setCompleted] = useState(false);
-   
-   // let clsName = (completed) ? `${styles.wrapperText} ${styles.completed}` : `${styles.wrapperText}`; 
+   const handleChecking = () => {
+      dispatch(updateTodoAction(id, {
+         checked: !checked,
+      }))
+  };
+
+   const handleDelete = () => {
+      dispatch(deleteTodoAction(id))
+      setEdit('');
+   };
+
+   const handleEdit = () => {
+      setEdit(!edit)
+   };
+
+   const clsName = (checked) ? `${s.wrapperText} ${s.completed}` : `${s.wrapperText}`; 
+
    return (
-      <li className={styles.todoItem}>
-         <label className={styles.wrapperText}>
+      <li className={s.todoItem}>
+         <label className={clsName}>
             <input 
-               className={styles.inputCheckbox}
-               type="checkbox" 
-               // checked={completed} 
-               // onChange={()=> {setCompleted(!completed)}}/> 
-               />
-            {item.todo}
+               className={s.inputCheckbox}
+               type="checkbox"
+               checked={checked}
+               onChange={handleChecking}
+            />
+            { edit ? text : <EditTodo handleEdit={handleEdit} text = {text} id={id}/> }
          </label>
-         <button 
-            className={styles.deleteTodo}> 
-            {/* { onClick={() => deleteTodo(item.id)}>} */}
-            🗑️
-         </button>
+         <div>
+            <button className={s.btnTodo} onClick={handleEdit}> 
+               📝
+            </button>
+            <button className={s.btnTodo} onClick={handleDelete}> 
+               🗑️
+            </button>
+         </div>
       </li>
    )
 }
-
-export default  TodosItem;

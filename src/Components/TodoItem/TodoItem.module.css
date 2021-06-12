@@ -28,7 +28,7 @@
    text-decoration: line-through;
 }
 
-.deleteTodo {
+.btnTodo {
    background-color: hsl(240, 30%, 35%);
    border: none;
    align-self:center;

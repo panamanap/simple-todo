@@ -1,13 +1,17 @@
-import styles from './Header.module.css';
+import s from './Header.module.css';
+import { useSelector } from "react-redux";
+import { selectTodoCount } from "../../redux/selectors";
 
-const Header = ({quantityTasks}) => {
+const Header = () => {
+   const countTodos = useSelector(selectTodoCount);
+
    return (
-      <header className={styles.todosHeader} >
-         <h1 className={styles.title}>
+      <header className={s.todosHeader} >
+         <h1 className={s.title}>
             Todo List
          </h1>
-         <div className = {styles.quantityTasks}>
-         Tasks: {quantityTasks}
+         <div className = {s.quantityTasks}>
+         Tasks: {countTodos}
       </div>
       </header>
    )

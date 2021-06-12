@@ -1,0 +1,15 @@
+.wrapperEdit {
+   display: flex;   
+}
+
+.editInput{
+   outline: none;
+}
+
+.btnEdit {
+   transform: scale(1.2);
+   margin-left: 5px;
+   background-color: hsl(240, 30%, 35%);
+   border: none;
+   color: white;
+}
