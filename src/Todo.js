@@ -1,6 +1,6 @@
-import Header from './Components/Header/Header';
-import AddTodo from './Components/AddTodo/AddTodo';
-import { TodoList } from './Components/TodoList/TodoList';
+import Header from './сomponents/Header/Header';
+import AddTodo from './сomponents/AddTodo/AddTodo';
+import { TodoList } from './сomponents/TodoList/TodoList';
 import styles from './Todo.module.css';
 
 const Todo = () => {
@@ -14,3 +14,5 @@ const Todo = () => {
 }
 
 export default Todo;
+
+
